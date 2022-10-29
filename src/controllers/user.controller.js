@@ -38,6 +38,7 @@ export const createUser = async (req, res) => {
     }
 
     const response = await userServices.createUser(data);
+    console.log(response.token)
     res.cookie("_token", response.token, {
       httpOnly: true,
     }).redirect("/templates/profile");
