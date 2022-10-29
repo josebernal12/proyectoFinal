@@ -1,9 +1,11 @@
-
-
-
 export const esAdminRole = async (req, res, next) => {
-  const response = await userModel.findById(id);
-  if (!response) {
-    throw new Error(`no existe el id ${id} en la base de datos`);
+
+  const { name, role } = req.usuario
+
+  if (role !='ADMIN_ROLE') {
+    return res.status(401).json({
+      msg: `${name} no tiene permiso!`
+    })
   }
+  next()
 };

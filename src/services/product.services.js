@@ -6,33 +6,32 @@ class productServices {
   }
 
   async getAllProduct() {
-    const product = this.products.find();
+    const product = this.products.find().populate('category', 'name')
     return product;
   }
 
   async getAById(id) {
-    const product = await this.products.findById(id).populate("user", "name");
+    const product = await this.products.findById(id).populate("user", "name").populate('category', 'name')
     return product;
   }
   async createProduct(createdProduct) {
     // const productName = await this.products.findOne({
-    //   nombre: createdProduct.nombre,
+    //   name: createdProduct.name,
     // });
-    // if (productName) throw "el producto ya existe";
+    // // if (productName) throw "el producto ya existe";
     const product = this.products.create(createdProduct);
-    console.log(product)
     return product;
   }
 
   async updatedProduct(id, product) {
     const response = await this.products.findByIdAndUpdate(id, product, {
       new: true,
-    });
+    }).populate('category', 'name')
     return response;
   }
 
   async deletedProduct(id) {
-    const response = await this.products.findByIdAndDelete(id);
+    const response = await this.products.findByIdAndDelete(id).populate('category', 'name')
     return response;
   }
 }

@@ -1,5 +1,18 @@
 import { Router } from "express";
 const router = Router();
+import multer from "multer";
+import shortid from 'shortid'
+import path, { dirname } from "path"
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, '../uploads'),
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
 
 import {
   getUser,
@@ -10,9 +23,15 @@ import {
 } from "../controllers/user.controller.js";
 import { checkField, checkFieldById } from "../middlewares/validate-field.js";
 
+const upload = multer({
+  storage,
+  dest: path.join(__dirname, '../uploads')
+}).single('image')
+
+
 router.get("/", getUser);
 router.get("/:id", checkFieldById, getUserById);
-router.post("/", checkField, createUser);
+router.post("/", upload, checkField, createUser);
 router.put("/:id", checkFieldById, updateUser);
 router.delete("/:id", checkFieldById, deleteUser);
 export default router;

@@ -1,5 +1,6 @@
 import userModel from "../models/user.model.js";
 import bcryptjs from 'bcryptjs'
+import { generateJWT } from "../helpers/generar-jwt.js";
 
 class User {
   constructor() {
@@ -15,20 +16,21 @@ class User {
     return response;
   }
   async createUser(user) {
-    // console.log(user)
     const response = new this.user(user)
     const salt = bcryptjs.genSaltSync()
     response.password = bcryptjs.hashSync(user.password, salt)
     response.save()
-    // console.log('response servicee', response)
-    
-    return response;
+    const token = await generateJWT(response._id)
+    return {
+      response,
+      token
+    };
   }
   async updateUser(id, product) {
     const response = this.user.findByIdAndUpdate(id, product, { new: true });
     return response;
   }
-  async deleteUser(id){
+  async deleteUser(id) {
     const response = this.user.findByIdAndDelete(id)
     return response
   }

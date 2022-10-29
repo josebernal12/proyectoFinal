@@ -6,7 +6,6 @@ const protectRoute = async (req, res, next) => {
   if (!_token) {
     return res.redirect("/templates/login");
   }
-//   console.log(_token)
 
   try {
     const decoded = jwt.verify(_token, process.env.SECRETORPRIVATEKEY);

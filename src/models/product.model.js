@@ -13,22 +13,26 @@ const productSchema = Schema({
         type: Number,
         required: [true, 'el stock es obligatorio']
     },
-    user:{
+    user: {
         type: Schema.ObjectId,
         ref: 'user',
-       
+
     },
-  
-    cart :{
-      type: Schema.ObjectId,
-      ref: 'cart'
+
+    cart: {
+        type: Schema.ObjectId,
+        ref: 'cart'
     },
-  
+    category: {
+        type: Schema.ObjectId,
+        ref: 'category'
+    },
+
 
 })
 // { timestamps: true })
 
-   
+
 
 
 export default model('product', productSchema)

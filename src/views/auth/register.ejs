@@ -15,7 +15,8 @@
     <div class="card border-secondary">
       <div class="card-header">Signup</div>
       <div class="card-body">
-        <form action="/api/user" method="POST">
+
+        <form action="/api/user" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
             <input type="email" class="form-control" id="email" name="email" tabindex="1">
@@ -37,8 +38,12 @@
             <input type="password" class="form-control" id="password" name="password" tabindex="1">
           </div>
           <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen</label>
-            <input type="file" class="form-control" id="imagen" name="image" tabindex="1">
+            <label for="repetir_password" class="form-label">Repetir Password</label>
+            <input type="password" class="form-control" id="repetir_password" name="repetir_password" tabindex="1">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="image" name="image" tabindex="1" required>
           </div>
 
           <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
@@ -67,7 +72,8 @@
 
       redireccionar('/templates/login');
     }
-  
+
+
 
 
 

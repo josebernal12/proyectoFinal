@@ -11,7 +11,7 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: [true, "el correo es obligatorio"],
+    // required: [true, "el correo es obligatorio"],
     unique: true,
   },
   age: {
@@ -35,12 +35,12 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.methods.encryptPassword = (password) => {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-};
+// userSchema.methods.encryptPassword = (password) => {
+//   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+// };
 
-userSchema.methods.comparePassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
-};
+// userSchema.methods.comparePassword = function (password) {
+//   return bcrypt.compareSync(password, this.password);
+// };
 
 export default model("user", userSchema);

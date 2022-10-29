@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Chat</title>
+</head>
+
+<body >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/templates/profile">Profile</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/templates/products">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/templates/cart"> Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/templates/chat"> Chat</a>
+              </li>
+    
+              <li class="nav-item">
+                <a href="/api/auth/logout" type="submit" class="nav-link" tabindex="5">Logout</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+
+    <div class="row mt-5">
+
+        <div class="">
+            <h1>
+                <%= `Bienvenido ${user.name}` %>
+            </h1>
+            <h3>Enviar Pregunta</h3>
+            <hr>
+            <form id="formMessage">
+                <input type="text" id="txtUid" class="form-control mb-2" placeholder="name" autocomplete="off" required>
+
+                <input type="text" id="txMsg" class="form-control mb-2" placeholder="message" autocomplete="off"
+                    required>
+
+                <button id="btnSend" class="btn btn-outline-primary">
+                    Send
+                </button>
+
+
+            </form>
+
+            <!-- <h3>usuarios</h3>
+            <hr>
+            <ul id="ulUsuario">
+
+            </ul> -->
+        </div>
+
+
+
+        <div class="col-sm-6">
+
+            <h3>Pregunta y Respuestas</h3>
+            <hr>
+            <ul id="ulMensajes">
+
+            </ul>
+
+
+        </div>
+
+
+    </div>
+
+    <!-- <button id="btnSalir" class="btn btn-outline-danger">
+        Logout
+    </button> -->
+
+    <script src="../socket.io/socket.io.js"></script>
+    <script src="../js/chat.js"></script>
+</body>
+
+</html>

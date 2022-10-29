@@ -19,4 +19,4 @@ const cartSchema = Schema({
 
 })
 
-module.exports = model('cart', cartSchema)
+export default model('cart', cartSchema)
