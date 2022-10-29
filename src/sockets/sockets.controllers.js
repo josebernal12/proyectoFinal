@@ -1,6 +1,5 @@
 import { Socket } from 'socket.io'
 import messagesModel from '../models/messages.model.js'
-// const messages = []
 
 const insertMessages = async (message) => {
     const messageCreated = await messagesModel.create(message)
