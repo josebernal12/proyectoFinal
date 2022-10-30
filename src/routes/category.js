@@ -9,7 +9,7 @@ const router = Router()
 router.get('/', getAll)
 router.get('/:id', checkFieldByIdCategory, getCategoryById)
 router.post('/', validJWTPostman, esAdminRole, checkfieldCategory, createCategory)
-router.put('/:id',  esAdminRole, checkFieldByIdCategory, updateCategory)
-router.delete('/:id', esAdminRole, checkFieldByIdCategory, deleteCategory)
+router.put('/:id', validJWTPostman, esAdminRole, checkFieldByIdCategory, updateCategory)
+router.delete('/:id', validJWTPostman, esAdminRole, checkFieldByIdCategory, deleteCategory)
 
 export default router

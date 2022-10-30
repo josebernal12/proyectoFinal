@@ -29,6 +29,12 @@ export const existUser = async (email) => {
 export const existProduct = async (name) => {
   const response = await productModel.findOne({ name });
   if (response) {
-    throw new Error(`ya existe el name ${name} en la base de datos`);
+    throw new Error(`ya existe el producto ${name} en la base de datos`);
+  }
+};
+export const existCategory = async (name) => {
+  const response = await categoryModel.findOne({ name });
+  if (response) {
+    throw new Error(`ya existe la categoria ${name} en la base de datos`);
   }
 };

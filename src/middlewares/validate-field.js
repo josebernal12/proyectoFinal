@@ -1,5 +1,5 @@
 import { validationResult, check } from "express-validator";
-import { existId, existIdCategory, existIdProduct, existProduct, existUser } from "../helpers/db-validator.js";
+import { existCategory, existId, existIdCategory, existIdProduct, existProduct, existUser } from "../helpers/db-validator.js";
 
 const validateField = (req, res, next) => {
   try {
@@ -76,6 +76,7 @@ export const checkFieldByIdProduct = [
 export const checkfieldCategory = [
   check("name", 'el nombre es obligatorio').exists().not().isEmpty(),
   check("product", 'el producto es obligatorio').exists().not().isEmpty(),
+  check('name').custom(existCategory),
   (req, res, next) => {
     validateFieldCategories(req, res, next);
   },
