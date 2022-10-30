@@ -1,6 +1,6 @@
 import { handleHtpp } from "../helpers/error.handle.js";
 import User from "../services/user.services.js";
-
+import logger from '../helpers/logger.js'
 
 const userServices = new User();
 export const getUser = async (req, res) => {
@@ -38,7 +38,7 @@ export const createUser = async (req, res) => {
     }
 
     const response = await userServices.createUser(data);
-    console.log(response.token)
+    logger.info(`el token del usuario creado es ${response.token}`)
     res.cookie("_token", response.token, {
       httpOnly: true,
     }).redirect("/templates/profile");
