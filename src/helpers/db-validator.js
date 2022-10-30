@@ -15,6 +15,7 @@ export const existIdProduct = async (id) => {
   }
 };
 export const existIdCategory = async (id) => {
+  
   const response = await categoryModel.findById(id);
   if (!response) {
     throw new Error(`no existe el id ${id} en la base de datos`);

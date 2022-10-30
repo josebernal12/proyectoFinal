@@ -15,10 +15,6 @@ class productServices {
     return product;
   }
   async createProduct(createdProduct) {
-    // const productName = await this.products.findOne({
-    //   name: createdProduct.name,
-    // });
-    // // if (productName) throw "el producto ya existe";
     const product = this.products.create(createdProduct);
     return product;
   }

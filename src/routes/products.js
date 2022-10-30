@@ -21,4 +21,5 @@ router.post("/", protectRoute, esAdminRole, checkfieldProducts, createdProduct);
 //le agregue el jwt de postman por que es el unico que no me funciona en front!, y para que se pueda probar en postman
 router.put("/:id", validJWTPostman, checkFieldByIdProduct, updateProduct);
 router.delete("/:id", protectRoute, esAdminRole, checkFieldByIdProduct, deleteProduct);
+
 export default router;

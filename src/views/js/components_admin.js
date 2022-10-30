@@ -15,6 +15,7 @@ const createHtml = () => {
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Edit</th>
                     <th scope="col">View</th>
                     <th scope="col">Delete</th>
@@ -42,13 +43,14 @@ const getProducts = async () => {
   }
 };
 
-const createProduct = ({ _id, name, price, stock }) => {
- 
+const createProduct = ({ _id, name, price, stock, category }) => {
+
   const html = `
   
   <td  scope="col"> ${name}</td>
   <td scope="col"> ${price} </td>
   <td scope="col"> ${stock} </td>
+  <td scope="col"> ${category.name} </td>
   
   <td>
     <a href="/templates/products/edit/${_id}" class="btn btn-primary mt-2">Edit</a>
@@ -73,11 +75,6 @@ const init = async () => {
     createProduct(product);
   }
 };
-// const initDelete = async () => {
-//   const products = await getProducts();
-//   for (const product of products) {
-//     Delete(product);
-//   }
-// };
+
 
 init();

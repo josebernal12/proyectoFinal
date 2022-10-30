@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { protectRoute } from "../middlewares/valid-jwt.js";
-import Cart from "../models/cart.model.js";
 import Product from '../models/product.model.js'
 const router = Router();
 
@@ -26,9 +25,7 @@ router.get("/products/:id", protectRoute, async (req, res) => {
 router.get("/product/create", protectRoute, (req, res) => {
   res.render("product/create");
 });
-// router.get("/product/prueba",(req, res) => {
-//   res.send('holaa');
-// });
+
 router.get("/products/edit/:id", protectRoute, async (req, res) => {
   const { id } = req.params
   const product = await Product.findById(id)
@@ -55,18 +52,13 @@ router.get('/chat/response', (req, res) => {
 })
 //
 router.get('/cart', protectRoute, async (req, res) => {
-  // const { id } = req.params
-  // console.log(id)
-  // const cart = await Cart.findById(id)
-  // console.log(cart)
+
 
   res.render('cart/cart',)
 })
 
 
-// router.get('/errorLogin', protectRoute, (req, res) => {
-//   res.render('errors/error.login')
-// })
+
 
 
 

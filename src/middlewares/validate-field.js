@@ -59,6 +59,8 @@ export const checkfieldProducts = [
   check("price", 'el precio es obligatorio').isNumeric().not().isEmpty(),
   check("stock", 'el stock es obligatorio').isNumeric().not().isEmpty(),
   check('name').custom(existProduct),
+  check('category').custom(existIdCategory),
+  check('category', ' no es un id de mongo, revise el id de la categoria').isMongoId(),
   (req, res, next) => {
     validateFieldProduct(req, res, next);
   },

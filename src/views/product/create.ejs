@@ -30,7 +30,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/templates/chat"> Chat</a>
             </li>
-  
+
             <li class="nav-item">
               <a href="/api/auth/logout" type="submit" class="nav-link" tabindex="5">Logout</a>
             </li>
@@ -56,6 +56,10 @@
             <label for="stock" class="form-label">Stock</label>
             <input type="number" class="form-control" id="stock" name="stock" tabindex="1">
           </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">IDCategory</label>
+            <input type="text" class="form-control" id="category" name="category" tabindex="1">
+          </div>
 
           <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
 
@@ -64,7 +68,7 @@
     </div> <br>
     <button type="submit" class="btn btn-primary" onclick="goSignup()" tabindex="5">Back</button>
   </div>
- 
+
 
   <script>
     function redireccionar(pagina) {
