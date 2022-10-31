@@ -8,7 +8,7 @@ const createCart = async (req, res) => {
             cartCreated,
         });
     } catch (error) {
-        res.json(error);
+        handleHtpp(res, 'ERROR EN CREATE CART', error)
     }
 };
 
@@ -23,7 +23,7 @@ const getCart = async (req, res) => {
 
     } catch (error) {
 
-        console.log(error)
+        handleHtpp(res, 'ERROR EN GET ALL CART', error)
     }
 
 }
@@ -39,7 +39,7 @@ const getCartById = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error)
+        handleHtpp(res, 'ERROR EN GET CART BY ID', error)
     }
 
 }
@@ -56,7 +56,7 @@ const uploadCart = async (req, res) => {
 
     } catch (error) {
 
-        console.log(error)
+        handleHtpp(res, 'ERROR EN UPLOAD CART', error)
     }
 
 }
@@ -72,7 +72,7 @@ const deleteCart = async (req, res) => {
 
     } catch (error) {
 
-        console.log(error)
+        handleHtpp(res, 'ERROR EN DELETE CART', error)
     }
 
 }

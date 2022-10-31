@@ -1,3 +1,4 @@
+import { handleHtpp } from "../helpers/error.handle.js";
 import categoryModel from "../models/category.model.js";
 import productServices from "../services/product.services.js";
 const product = new productServices();
@@ -15,7 +16,7 @@ const getProductById = async (req, res) => {
       response,
     });
   } catch (error) {
-    console.log(error);
+    handleHtpp(res, 'ERROR EN GET PRODUCT ID', error)
   }
 };
 
@@ -28,7 +29,7 @@ const createdProduct = async (req, res) => {
 
     res.status(201).redirect("/templates/products");
   } catch (error) {
-    res.json(error);
+    handleHtpp(res, 'ERROR EN CREATE PRODUCT', error)
   }
 };
 
@@ -39,7 +40,7 @@ const updateProduct = async (req, res) => {
     // res.status(201).redirect("/templates/products");
     res.send(response)
   } catch (error) {
-    console.log(error);
+    handleHtpp(res, 'ERROR UPDATE PRODUCT', error)
   }
 };
 
@@ -57,16 +58,21 @@ const deleteProduct = async (req, res) => {
     //   response,
     // });
   } catch (error) {
-    console.log(error);
+    handleHtpp(res, 'ERROR EN DELETE PRODUCT', error)
   }
 };
 
 
 const productCategory = async (req, res) => {
-  const { category } = req.params
+  try {
+    const { category } = req.params
 
-  const response = await categoryModel.findById(category)
-  res.json({ response })
+    const response = await categoryModel.findById(category)
+    res.json({ response })
+  } catch (error) {
+    handleHtpp(res, 'ERROR EN PRODUCT CATEGORY', error)
+
+  }
 }
 
 export {

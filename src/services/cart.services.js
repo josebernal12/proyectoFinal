@@ -16,8 +16,6 @@ class CartServices {
     return response;
   }
   async createdCart(cart) {
-    // const emailExiste = await Carrito.carts({ email: cart.email });
-    // if (emailExiste) throw `el email ${emailExiste.email} ya tiene un carrito!`;
     const response = await this.carts.create(cart);
     return response;
   }

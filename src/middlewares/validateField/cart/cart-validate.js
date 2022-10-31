@@ -4,6 +4,7 @@ import { validateFieldPostman } from "../category/category-validate.js";
 
 export const validateFieldCart = [
     check('email', 'el email es obligatorio').exists().not().isEmpty(),
+    check('email').custom(),
     check('order', 'agregue un producto por favor!').exists().not().isEmpty(),
     (req, res, next) => {
         validateFieldPostman(req, res, next);
