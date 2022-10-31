@@ -21,7 +21,7 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/user.controller.js";
-import { checkField, checkFieldById } from "../middlewares/validate-field.js";
+import { checkField, checkFieldById } from "../middlewares/validateField/user/user-validate.js";
 import { validJWTPostman } from "../middlewares/valid-jwt-postman.js";
 import { esAdminRole } from "../middlewares/role.js";
 

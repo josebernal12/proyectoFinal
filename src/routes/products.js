@@ -13,7 +13,7 @@ import { protectRoute } from "../middlewares/valid-jwt.js";
 import {
   checkFieldByIdProduct,
   checkfieldProducts,
-} from "../middlewares/validate-field.js";
+} from "../middlewares/validateField/product/product-validate.js";
 const router = Router();
 
 router.get("/", getProducts);

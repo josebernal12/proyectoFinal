@@ -55,7 +55,6 @@ const uploadCart = async (req, res) => {
 
 
     } catch (error) {
-        logger.error('hablar con el administrador - ruta - Actualizar Carrito')
 
         console.log(error)
     }
