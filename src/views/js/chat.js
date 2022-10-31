@@ -11,15 +11,20 @@ formMessage.addEventListener('submit', event => {
 
     const email = txtUid.value
     const question = txMsg.value
+    const hours = new Date()
+    const fecha = ([hours.getDate(), hours.getMonth(), hours.getFullYear()])
+    const time = ([hours.getHours(), hours.getMinutes()])
+    const resultado = fecha.join("/")
 
 
-    socket.emit('client:message', { email, question })
+
+
+    socket.emit('client:message', { email, question, time,resultado })
 })
 
 socket.on('server:message', data => {
     ulMensajes.innerHTML = ""
-    console.log(data)
-    data.forEach(message => { 
-        ulMensajes.innerHTML += `<h2> <b style= 'color: blue'> ${message.email}: <b style= 'color: red'> ${message.question} </h2> <a href ="/templates/chat/response" class="btn btn-primary">Ver Respuesta</a>`
+    data.forEach(message => {
+        ulMensajes.innerHTML += `<h2> <b style= 'color: blue'> ${message.email}: <b style= 'color: red'> ${message.question} </h2> `
     })
 })

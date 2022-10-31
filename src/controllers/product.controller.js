@@ -1,9 +1,10 @@
+import categoryModel from "../models/category.model.js";
 import productServices from "../services/product.services.js";
 const product = new productServices();
 const getProducts = async (req, res) => {
   const response = await product.getAllProduct();
 
-  res.json( response );
+  res.json(response);
 };
 
 const getProductById = async (req, res) => {
@@ -60,10 +61,19 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+
+const productCategory = async (req, res) => {
+  const { category } = req.params
+
+  const response = await categoryModel.findById(category)
+  res.json({ response })
+}
+
 export {
   getProducts,
   getProductById,
   createdProduct,
   updateProduct,
   deleteProduct,
+  productCategory
 };

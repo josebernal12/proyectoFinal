@@ -22,6 +22,8 @@ import {
   deleteUser,
 } from "../controllers/user.controller.js";
 import { checkField, checkFieldById } from "../middlewares/validate-field.js";
+import { validJWTPostman } from "../middlewares/valid-jwt-postman.js";
+import { esAdminRole } from "../middlewares/role.js";
 
 const upload = multer({
   storage,
@@ -32,6 +34,6 @@ const upload = multer({
 router.get("/", getUser);
 router.get("/:id", checkFieldById, getUserById);
 router.post("/", upload, checkField, createUser);
-router.put("/:id", checkFieldById, updateUser);
-router.delete("/:id", checkFieldById, deleteUser);
+router.put("/:id", validJWTPostman, esAdminRole, checkFieldById, updateUser);
+router.delete("/:id", validJWTPostman, esAdminRole, checkFieldById, deleteUser);
 export default router;

@@ -4,6 +4,7 @@ import {
   deleteProduct,
   getProductById,
   getProducts,
+  productCategory,
   updateProduct,
 } from "../controllers/product.controller.js";
 import { esAdminRole } from "../middlewares/role.js";
@@ -22,4 +23,5 @@ router.post("/", protectRoute, esAdminRole, checkfieldProducts, createdProduct);
 router.put("/:id", validJWTPostman, checkFieldByIdProduct, updateProduct);
 router.delete("/:id", protectRoute, esAdminRole, checkFieldByIdProduct, deleteProduct);
 
+router.get('/category/:category', productCategory)
 export default router;
