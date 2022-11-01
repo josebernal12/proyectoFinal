@@ -1,6 +1,7 @@
 import { validationResult, check } from "express-validator";
-import { existIdProduct, existProduct, existIdCategory } from "../../../helpers/db-validator.js";
-import {  validateFieldPostman } from "../category/category-validate.js";
+import { existIdProduct, existProduct } from "../../../helpers/db-validator/product-validator/product.js";
+import { existIdCategory } from "../../../helpers/db-validator/categories-validator/categories.js";
+import { validateFieldPostman } from "../category/category-validate.js";
 
 const validateFieldProduct = (req, res, next) => {
     try {
@@ -28,7 +29,7 @@ export const checkfieldProducts = [
 
 
 export const checkFieldByIdProduct = [
-    check('id','el id no es de mongo').isMongoId(),
+    check('id', 'el id no es de mongo').isMongoId(),
     check('id',).custom(existIdProduct),
     (req, res, next) => {
         validateFieldPostman(req, res, next);

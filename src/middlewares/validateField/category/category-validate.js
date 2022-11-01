@@ -1,5 +1,5 @@
 import { validationResult, check } from "express-validator";
-import { existCategory, existIdCategory } from "../../../helpers/db-validator.js";
+import { existCategory, existIdCategory } from "../../../helpers/db-validator/categories-validator/categories.js";
 
 
 export const validateFieldPostman = (req, res, next) => {

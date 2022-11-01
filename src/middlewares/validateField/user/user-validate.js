@@ -1,5 +1,5 @@
 import { validationResult, check } from "express-validator";
-import { existId, existPhone, existUser } from "../../../helpers/db-validator.js";
+import { existId, existPhone, existUser } from "../../../helpers/db-validator/user-validator/user.js";
 
 const validateField = (req, res, next) => {
     try {
