@@ -17,7 +17,7 @@ export const checkField = [
     check("name", 'el nombre es obligatorio').exists().not().isEmpty(),
     check("password", 'el password es obligatorio').exists().not().isEmpty(),
     check("age", 'la edad es obligatoria').exists().isNumeric().not().isEmpty(),
-    check("phone", 'el telefono es obligatorio o te faltaron mas digitos(10)!').exists().isNumeric().isLength({ min: 10, max: 10 }).not().isEmpty(),
+    check("phone", 'el telefono es obligatorio ').exists().not().isEmpty(),
     check('phone').custom(existPhone),
     check("email", 'el email es obligatorio').exists().not().isEmpty(),
     check('email').custom(existUser),

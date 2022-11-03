@@ -1,4 +1,5 @@
 import CartServices from '../services/cart.services.js'
+import { sendMessage } from '../email/email.js'
 const cart = new CartServices()
 
 const createCart = async (req, res) => {
@@ -78,31 +79,20 @@ const deleteCart = async (req, res) => {
 }
 
 
-// const comprarCarrito = async (req, res) => {
+const buyCart = async (req, res) => {
 
-//     const { id } = req.params
+    const { id } = req.params
 
-//     const carritoComprado = await Carrito.findByIdAndDelete(id)
+    const response = await cart.deletedCart(id)
+    const whatsapp = await sendMessage(req.usuario.phone, req.usuario.name)
 
+    res.json({
+        msg: 'carrito comprado',
+        whatsapp
 
+    })
 
-//     const whatsapp = await sendMessage(req.usuario.telefono, req.usuario.nombre)
-
-
-//     await transporter.sendMail({
-//         from: 'carrito comprado',
-//         to: Config.USER,
-//         subject: 'carrito comprado',
-//         html: `carrito comprado de ${req.usuario.nombre}`
-//     })
-
-//     res.json({
-//         msg: 'carrito comprado',
-//         whatsapp
-
-//     })
-
-// }
+}
 
 
 
@@ -111,5 +101,6 @@ export {
     getCart,
     getCartById,
     uploadCart,
-    deleteCart
+    deleteCart,
+    buyCart
 }

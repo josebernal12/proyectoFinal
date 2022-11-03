@@ -8,7 +8,10 @@ const Config = {
     PASS: process.env.PASS,
     SECRETORPRIVATEKEY: process.env.SECRETORPRIVATEKEY,
     HOST: process.env.HOST,
-    EMAILPORT: process.env.EMAILPORT,
+    ACCOUNTSIDE: process.env.ACCOUNTSIDE,
+    AUTHTOKEN: process.env.AUTHTOKEN,
+    NUMBERTWILIO: process.env.NUMBERTWILIO
+
 
 }
 
