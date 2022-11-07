@@ -51,7 +51,7 @@ const createProduct = ({ _id, name, price, stock, category }) => {
   <td scope="col"> ${stock} </td>
   <td scope="col"> ${category.name} </td>
   <td>
-    <a href="/templates/cart/${_id}" class="btn btn-primary mt-2">Agregar al Carrito</a>
+    <a href="#" class="btn btn-primary mt-2">Agregar al Carrito</a>
   </td>
   <td>
   <a href="/templates/products/${_id}"  class="btn btn-primary mt-2"> View </a>
